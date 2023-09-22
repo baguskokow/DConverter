@@ -2,6 +2,7 @@
 #include <cmath>
 #include <unistd.h>
 #include <cstring>
+#include <iomanip>
 
 void help() {
 		std::cout << "Usage : dconvert [Option First Unit]... [Value]... [Option Target Unit]...\n\n";
@@ -21,6 +22,7 @@ void version() {
 	std::cout << "dconvert v1.0\n\nWritten by Bagus Koko Wibawanto\n";
 }
 
+// Function for convert to Byte
 double toByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -28,6 +30,8 @@ double toByte(char *firstUnit, double value, char *lastUnit) {
 		result = value;
 	} else if(strcmp(firstUnit, "-K") == 0) {
 		result = value * pow(2, 10);
+	} else if(strcmp(firstUnit, "-M") == 0) {
+		result = value * pow(2, 20);
 	} else if(strcmp(firstUnit, "-G") == 0) {
 		result = value * pow(2, 30);
 	} else if(strcmp(firstUnit, "-T") == 0) {
@@ -36,10 +40,6 @@ double toByte(char *firstUnit, double value, char *lastUnit) {
 		result = value * pow(2, 50);
 	} else if(strcmp(firstUnit, "-E") == 0) {
 		result = value * pow(2, 60);
-	} else if(strcmp(firstUnit, "-Z") == 0) {
-		result = value * pow(2, 70);
-	} else if(strcmp(firstUnit, "-Z") == 0) {
-		result = value * pow(2, 80);
 	} else {
 		result = 0;
 	}
@@ -47,25 +47,221 @@ double toByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
-//void printByte(char *firstUnit, int value, char *lastUnit) {
-//	std::cout << firstUnit << "\n";
-//	std::cout << value << "\n";
-//	std::cout << lastUnit << "\n";
-//    std::cout << "hasil : " << value * pow(2, 10);
-//}
-//
+// Function for convert to KiloBytes
+double toKiloByte(char *firstUnit, double value, char *lastUnit) {
+	double result;
+
+	if(strcmp(firstUnit, "-K") == 0) {
+		result = value;
+	} else if(strcmp(firstUnit, "-B") == 0) {
+		result = value / pow(2, 10);
+	} else if(strcmp(firstUnit, "-M") == 0) {
+		result = value * pow(2, 10);
+	} else if(strcmp(firstUnit, "-G") == 0) {
+		result = value * pow(2, 20);
+	} else if(strcmp(firstUnit, "-T") == 0) {
+		result = value * pow(2, 30);
+	} else if(strcmp(firstUnit, "-P") == 0) {
+		result = value * pow(2, 40);
+	} else if(strcmp(firstUnit, "-E") == 0) {
+		result = value * pow(2, 50);
+	} else {
+		result = 0;
+	}
+
+	return result;
+}
+
+double toMegaByte(char *firstUnit, double value, char *lastUnit) {
+	double result;
+
+	if(strcmp(firstUnit, "-M") == 0) {
+		result = value;
+	} else if(strcmp(firstUnit, "-B") == 0) {
+		result = value / pow(2, 20);
+	} else if(strcmp(firstUnit, "-K") == 0) {
+		result = value / pow(2, 10);
+	} else if(strcmp(firstUnit, "-G") == 0) {
+		result = value * pow(2, 10);
+	} else if(strcmp(firstUnit, "-T") == 0) {
+		result = value * pow(2, 20);
+	} else if(strcmp(firstUnit, "-P") == 0) {
+		result = value * pow(2, 30);
+	} else if(strcmp(firstUnit, "-E") == 0) {
+		result = value * pow(2, 40);
+	} else {
+		result = 0;
+	}
+
+	return result;
+}
+
+double toGigaByte(char *firstUnit, double value, char *lastUnit) {
+	double result;
+
+	if(strcmp(firstUnit, "-G") == 0) {
+		result = value;
+	} else if(strcmp(firstUnit, "-B") == 0) {
+		result = value / pow(2, 30);
+	} else if(strcmp(firstUnit, "-K") == 0) {
+		result = value / pow(2, 20);
+	} else if(strcmp(firstUnit, "-M") == 0) {
+		result = value / pow(2, 10);
+	} else if(strcmp(firstUnit, "-T") == 0) {
+		result = value * pow(2, 10);
+	} else if(strcmp(firstUnit, "-P") == 0) {
+		result = value * pow(2, 20);
+	} else if(strcmp(firstUnit, "-E") == 0) {
+		result = value * pow(2, 30);
+	} else {
+		result = 0;
+	}
+
+	return result;
+}
+
+double toTeraByte(char *firstUnit, double value, char *lastUnit) {
+	double result;
+
+	if(strcmp(firstUnit, "-T") == 0) {
+		result = value;
+	} else if(strcmp(firstUnit, "-B") == 0) {
+		result = value / pow(2, 40);
+	} else if(strcmp(firstUnit, "-K") == 0) {
+		result = value / pow(2, 30);
+	} else if(strcmp(firstUnit, "-M") == 0) {
+		result = value / pow(2, 20);
+	} else if(strcmp(firstUnit, "-G") == 0) {
+		result = value / pow(2, 10);
+	} else if(strcmp(firstUnit, "-P") == 0) {
+		result = value * pow(2, 10);
+	} else if(strcmp(firstUnit, "-E") == 0) {
+		result = value * pow(2, 20);
+	} else {
+		result = 0;
+	}
+
+	return result;
+}
+
+double toPetaByte(char *firstUnit, double value, char *lastUnit) {
+	double result;
+
+	if(strcmp(firstUnit, "-P") == 0) {
+		result = value;
+	} else if(strcmp(firstUnit, "-B") == 0) {
+		result = value / pow(2, 50);
+	} else if(strcmp(firstUnit, "-K") == 0) {
+		result = value / pow(2, 40);
+	} else if(strcmp(firstUnit, "-M") == 0) {
+		result = value / pow(2, 30);
+	} else if(strcmp(firstUnit, "-G") == 0) {
+		result = value / pow(2, 20);
+	} else if(strcmp(firstUnit, "-T") == 0) {
+		result = value / pow(2, 10);
+	} else if(strcmp(firstUnit, "-E") == 0) {
+		result = value * pow(2, 10);
+	} else {
+		result = 0;
+	}
+
+	return result;
+}
+
+double toExaByte(char *firstUnit, double value, char *lastUnit) {
+	double result;
+
+	if(strcmp(firstUnit, "-E") == 0) {
+		result = value;
+	} else if(strcmp(firstUnit, "-B") == 0) {
+		result = value / pow(2, 60);
+	} else if(strcmp(firstUnit, "-K") == 0) {
+		result = value / pow(2, 50);
+	} else if(strcmp(firstUnit, "-M") == 0) {
+		result = value / pow(2, 40);
+	} else if(strcmp(firstUnit, "-G") == 0) {
+		result = value / pow(2, 30);
+	} else if(strcmp(firstUnit, "-T") == 0) {
+		result = value / pow(2, 20);
+	} else if(strcmp(firstUnit, "-P") == 0) {
+		result = value / pow(2, 10);
+	} else {
+		result = 0;
+	}
+
+	return result;
+}
+
+void printResult(char *firstUnit, double value, char *lastUnit) {
+	if(strcmp(lastUnit, "-B") == 0) {
+		double valueAfter = toByte(firstUnit, value, lastUnit);
+		
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << valueAfter << "\n";
+		}
+	} else if(strcmp(lastUnit, "-K") == 0) {
+		double valueAfter = toKiloByte(firstUnit, value, lastUnit);
+
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toKiloByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+		}
+	} else if(strcmp(lastUnit, "-M") == 0) {
+		double valueAfter = toMegaByte(firstUnit, value, lastUnit);
+		
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toMegaByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+		}
+	} else if(strcmp(lastUnit, "-G") == 0) {
+		double valueAfter = toGigaByte(firstUnit, value, lastUnit);
+		
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toGigaByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+		}
+	} else if(strcmp(lastUnit, "-T") == 0) {
+		double valueAfter = toTeraByte(firstUnit, value, lastUnit);
+		
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toTeraByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+		}
+	} else if(strcmp(lastUnit, "-P") == 0) {
+		double valueAfter = toPetaByte(firstUnit, value, lastUnit);
+		
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toPetaByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+		}
+	} else if(strcmp(lastUnit, "-E") == 0) {
+		double valueAfter = toExaByte(firstUnit, value, lastUnit);
+		
+		if(valueAfter == static_cast<int>(valueAfter)) {
+			std::cout << std::fixed << static_cast<int>(toExaByte(firstUnit, value, lastUnit)) << "\n";
+		} else {
+			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+		}
+	}
+}
 
 struct Unit {
-	char sourceUnit;
-	char targetUnit;
+	char *sourceUnit;
+	char *targetUnit;
 	double value;
 };
 
 int main(int argc, char *argv[]) {
 	int optionInput;
-	char *sourceUnit;
-	char *targetUnit;
 	Unit digitalStorage;
+	char *valuePtr;
 
 	while ((optionInput = getopt(argc, argv, "hvBKMGTPEZY")) != -1) {
 		switch (optionInput) {
@@ -76,18 +272,49 @@ int main(int argc, char *argv[]) {
 			version();
 			return 0;
 		case 'K':
-			sourceUnit = argv[1];
-			digitalStorage.value = std::stoi(argv[2]);
-			targetUnit = argv[3];
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'M':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'G':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'T':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'P':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'E':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'Z':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
+			break;
+		case 'Y':
+			digitalStorage.sourceUnit = argv[1];
+			digitalStorage.value = strtod(argv[2], &valuePtr);
+			digitalStorage.targetUnit = argv[3];
 			break;
 		}
 	}
 
-	if(strcmp(targetUnit, "-B")	== 0) {
-		std::cout << toByte(sourceUnit, digitalStorage.value, targetUnit) << "\n";
-	} else {
-		std::cout << "False";
-	}
+	printResult(digitalStorage.sourceUnit, digitalStorage.value, digitalStorage.targetUnit);
 
 	return 0;
 }
