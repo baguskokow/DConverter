@@ -15,14 +15,14 @@ void help() {
 		std::cout << "-v = version\n\n";
 		std::cout << "Example : dconverter -M 1 -G ( -M 1024 -G = 1)\n\n";
 		std::cout << "Units : \n\n";
-		std::cout << "-B = Byte\n-K = Kilobyte\n-M = Megabyte\n-G = Gigabyte\n-T = Terabyte\n-P = Petabyte\n-E = Exabyte\n-Z = Zettabyte\n-Y = Yottabyte\n";
+		std::cout << "-B = Byte\n-K = Kilobyte\n-M = Megabyte\n-G = Gigabyte\n-T = Terabyte\n-P = Petabyte\n-E = Exabyte\n";
 }
 
 void version() {
-	std::cout << "dconvert v1.0\n\nWritten by Bagus Koko Wibawanto\n";
+	std::cout << "dconvert v1.0\nCopyright (c) 2023 Bagus Koko Wibawanto\nLicense: MIT License\n\nWritten by Bagus Koko Wibawanto\n";
 }
 
-// Function for convert to Byte
+// Function to convert to Byte
 double toByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -47,7 +47,7 @@ double toByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
-// Function for convert to KiloBytes
+// Function to convert to KiloBytes
 double toKiloByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -72,6 +72,7 @@ double toKiloByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
+//Function to convert to MegaByte
 double toMegaByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -96,6 +97,7 @@ double toMegaByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
+// Function to convert to GigaByte
 double toGigaByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -120,6 +122,7 @@ double toGigaByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
+// Function to convert to TeraByte
 double toTeraByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -144,6 +147,7 @@ double toTeraByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
+// Function to convert to PetaByte
 double toPetaByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -168,6 +172,7 @@ double toPetaByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
+// Function to convert to ExaByte
 double toExaByte(char *firstUnit, double value, char *lastUnit) {
 	double result;
 
@@ -192,6 +197,7 @@ double toExaByte(char *firstUnit, double value, char *lastUnit) {
 	return result;
 }
 
+// Function to print the result of the converterd value
 void printResult(char *firstUnit, double value, char *lastUnit) {
 	if(strcmp(lastUnit, "-B") == 0) {
 		double valueAfter = toByte(firstUnit, value, lastUnit);
@@ -249,9 +255,12 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		} else {
 			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
 		}
+	} else {
+		std::cout << "Invalid Option!\n";
 	}
 }
 
+// Struct data type for variables
 struct Unit {
 	char *sourceUnit;
 	char *targetUnit;
@@ -263,58 +272,61 @@ int main(int argc, char *argv[]) {
 	Unit digitalStorage;
 	char *valuePtr;
 
-	while ((optionInput = getopt(argc, argv, "hvBKMGTPEZY")) != -1) {
+	while ((optionInput = getopt(argc, argv, "hvBKMGTPEZY")) != -1) { // Get arguments from user input
 		switch (optionInput) {
 			case 'h':
-			help();
-			return 0;
-		case 'v':
-			version();
-			return 0;
-		case 'K':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'M':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'G':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'T':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'P':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'E':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'Z':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
-		case 'Y':
-			digitalStorage.sourceUnit = argv[1];
-			digitalStorage.value = strtod(argv[2], &valuePtr);
-			digitalStorage.targetUnit = argv[3];
-			break;
+				help();
+				return 0;
+			case 'v':
+				version();
+				return 0;
+			case 'K':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'M':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'G':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'T':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'P':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'E':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'Z':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			case 'Y':
+				digitalStorage.sourceUnit = argv[1];
+				digitalStorage.value = strtod(argv[2], &valuePtr);
+				digitalStorage.targetUnit = argv[3];
+				break;
+			default:
+				std::cout << "Invalid Option!\n";
+				return 0;
 		}
 	}
 
-	printResult(digitalStorage.sourceUnit, digitalStorage.value, digitalStorage.targetUnit);
+	printResult(digitalStorage.sourceUnit, digitalStorage.value, digitalStorage.targetUnit); // Call the printResult Function
 
 	return 0;
 }
