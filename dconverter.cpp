@@ -19,7 +19,7 @@ void help() {
 }
 
 void version() {
-	std::cout << "dconvert v1.0\nCopyright (c) 2023 Bagus Koko Wibawanto\nLicense: MIT License\n\nWritten by Bagus Koko Wibawanto\n";
+	std::cout << "dconvert v1.0\nCopyright (c) 2023 Bagus Koko Wibawanto\nLicense: MIT License\nRepository : https://github.com/baguskokow/DConverter\n\nWritten by Bagus Koko Wibawanto\n";
 }
 
 // Function to convert to Byte
