@@ -18,7 +18,7 @@ Case Example : You want to convert from Megabyte to Gigabyte. <br><br>
 
 ## Usage
 - Basics you should know <br>
-```dconvert [Option First Unit]... [Value]... [Option Target Unit]...```
+```dconverter [Source Unit]... [Value]... [Target Unit]...```
 - Help <br>
 ```dconverter -h``` <br><br>
 ![help](./images/help_usage.png)

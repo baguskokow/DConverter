@@ -6,14 +6,14 @@
 
 void help() {
 		std::cout << "DConverter is a tool for converting digital storage units and this tool is written in C++.\n\n";
-		std::cout << "Usage : dconvert [Option First Unit]... [Value]... [Option Target Unit]...\n\n";
-		std::cout << "[First Unit] source unit\n";
+		std::cout << "Usage : dconverter [Source Unit]... [Value]... [Target Unit]...\n\n";
+		std::cout << "[Source Unit] source unit\n";
 		std::cout << "[Value] the value you want to convert\n";
 		std::cout << "[Target Unit] target unit\n\n";
 		std::cout << "Options : \n\n";
 		std::cout << "-h = help\n";
 		std::cout << "-v = version\n\n";
-		std::cout << "Example : dconverter -M 1 -G ( -M 1024 -G = 1)\n\n";
+		std::cout << "Example : dconverter -M 1024 -G\n\n";
 		std::cout << "Units : \n\n";
 		std::cout << "-B = Byte\n-K = Kilobyte\n-M = Megabyte\n-G = Gigabyte\n-T = Terabyte\n-P = Petabyte\n-E = Exabyte\n";
 }
