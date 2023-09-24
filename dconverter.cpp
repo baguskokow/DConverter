@@ -5,11 +5,11 @@
 #include <iomanip>
 
 void help() {
+		std::cout << "DConverter is a tool for converting digital storage units and this tool is written in C++.\n\n";
 		std::cout << "Usage : dconvert [Option First Unit]... [Value]... [Option Target Unit]...\n\n";
-		std::cout << "This tools for convert digital storage.\n";
-		std::cout << "[First Unit] first option for digital storage\n";
+		std::cout << "[First Unit] source unit\n";
 		std::cout << "[Value] the value you want to convert\n";
-		std::cout << "[Target Unit] second option for digital storage target\n\n";
+		std::cout << "[Target Unit] target unit\n\n";
 		std::cout << "Options : \n\n";
 		std::cout << "-h = help\n";
 		std::cout << "-v = version\n\n";
