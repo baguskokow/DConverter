@@ -213,7 +213,7 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		if(valueAfter == static_cast<int>(valueAfter)) {
 			std::cout << std::fixed << static_cast<int>(toKiloByte(firstUnit, value, lastUnit)) << "\n";
 		} else {
-			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+			std::cout << valueAfter << "\n";
 		}
 	} else if(strcmp(lastUnit, "-M") == 0) {
 		double valueAfter = toMegaByte(firstUnit, value, lastUnit);
@@ -221,7 +221,7 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		if(valueAfter == static_cast<int>(valueAfter)) {
 			std::cout << std::fixed << static_cast<int>(toMegaByte(firstUnit, value, lastUnit)) << "\n";
 		} else {
-			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+			std::cout << valueAfter << "\n";
 		}
 	} else if(strcmp(lastUnit, "-G") == 0) {
 		double valueAfter = toGigaByte(firstUnit, value, lastUnit);
@@ -229,7 +229,7 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		if(valueAfter == static_cast<int>(valueAfter)) {
 			std::cout << std::fixed << static_cast<int>(toGigaByte(firstUnit, value, lastUnit)) << "\n";
 		} else {
-			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+			std::cout << valueAfter << "\n";
 		}
 	} else if(strcmp(lastUnit, "-T") == 0) {
 		double valueAfter = toTeraByte(firstUnit, value, lastUnit);
@@ -237,7 +237,7 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		if(valueAfter == static_cast<int>(valueAfter)) {
 			std::cout << std::fixed << static_cast<int>(toTeraByte(firstUnit, value, lastUnit)) << "\n";
 		} else {
-			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+			std::cout << valueAfter << "\n";
 		}
 	} else if(strcmp(lastUnit, "-P") == 0) {
 		double valueAfter = toPetaByte(firstUnit, value, lastUnit);
@@ -245,7 +245,7 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		if(valueAfter == static_cast<int>(valueAfter)) {
 			std::cout << std::fixed << static_cast<int>(toPetaByte(firstUnit, value, lastUnit)) << "\n";
 		} else {
-			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+			std::cout << valueAfter << "\n";
 		}
 	} else if(strcmp(lastUnit, "-E") == 0) {
 		double valueAfter = toExaByte(firstUnit, value, lastUnit);
@@ -253,7 +253,7 @@ void printResult(char *firstUnit, double value, char *lastUnit) {
 		if(valueAfter == static_cast<int>(valueAfter)) {
 			std::cout << std::fixed << static_cast<int>(toExaByte(firstUnit, value, lastUnit)) << "\n";
 		} else {
-			std::cout << std::fixed << std::setprecision(10) << valueAfter << "\n";
+			std::cout << valueAfter << "\n";
 		}
 	} else {
 		std::cout << "Invalid Option!\n";
